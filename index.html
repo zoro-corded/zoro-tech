@@ -1,0 +1,596 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kunkem Digital Prints</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <a href="#home" class="logo-container">
+
+            <!-- PUT YOUR LOGO HERE -->
+            <img src="data:image/png;base64,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"
+                alt="Kunkem Digital Prints Logo" class="logo">
+
+            <div class="logo-text">
+                <span>KUNKEM</span>
+                <small>DIGITAL PRINTS</small>
+            </div>
+
+        </a>
+
+        <nav id="navMenu">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#products">Products</a>
+            <a href="#services">Services</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+        <button class="menu-btn" id="menuBtn">
+            ☰
+        </button>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-content">
+
+            <p class="small-title">WELCOME TO KUNKEM</p>
+
+            <h1>
+                Turning Your
+                <span>Ideas</span>
+                Into Reality
+            </h1>
+
+            <p class="hero-text">
+                Premium digital printing, branding and creative design
+                solutions made specially for individuals and businesses.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#products" class="btn gold-btn">
+                    Explore Products
+                </a>
+
+                <a href="#contact" class="btn outline-btn">
+                    Contact Us
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-image">
+
+            <!-- <img src="data:image/png;base64,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"
+                alt=""> -->
+            <div class="image-placeholder">
+                <span>
+                    <img src="company.jpg" alt="">/
+
+                </span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="about section" id="about">
+
+        <div class="section-title">
+            <p>WHO WE ARE</p>
+            <h2>About <span>Kunkem</span></h2>
+        </div>
+
+        <div class="about-container">
+
+            <div class="about-image">
+
+                <!-- SPACE FOR COMPANY PHOTO -->
+                <div class="image-placeholder">
+                    <span><img
+                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtY1_FFk3FeLP9Rj3wBWCSGYoRBu9M5c5t39Hc1izdEmg41arCxD_EP1s&s"
+                            alt=""></span>
+                </div>
+
+            </div>
+
+            <div class="about-content">
+
+                <h3>
+                    Creativity. Quality. Excellence.
+                </h3>
+
+                <!-- REPLACE THIS WITH THE REAL COMPANY BIO -->
+
+                <p>
+                    Kunkem Digital Prints is a creative printing and
+                    branding company dedicated to providing high-quality
+                    printing solutions for individuals, businesses and
+                    organizations.
+                </p>
+
+                <p>
+                    From professional business materials to beautiful
+                    personalized products, our goal is to combine
+                    creativity, quality and modern technology to bring
+                    every customer's idea to life.
+                </p>
+
+                <div class="about-stats">
+
+                    <div>
+                        <strong>100+</strong>
+                        <span>Projects</span>
+                    </div>
+
+                    <div>
+                        <strong>50+</strong>
+                        <span>Customers</span>
+                    </div>
+
+                    <div>
+                        <strong>5+</strong>
+                        <span>Services</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= PRODUCTS ================= -->
+
+    <section class="products section" id="products">
+
+        <div class="section-title">
+
+            <p>OUR PRODUCTS</p>
+
+            <h2>
+                Featured <span>Products</span>
+            </h2>
+
+            <div class="gold-line"></div>
+
+        </div>
+
+
+        <div class="product-grid">
+
+
+            <!-- PRODUCT 1 -->
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <!-- PRODUCT IMAGE -->
+                    <img src="https://scontent.fiba2-3.fna.fbcdn.net/v/t39.30808-6/472226451_1135730521299714_7076207366411849991_n.jpg?stp=dst-jpg_tt6&cstp=mx720x890&ctp=s720x890&_nc_cat=106&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=833d8c&_nc_ohc=b0U7X50v0-IQ7kNvwHkL7A3&_nc_oc=AdqDCerYG8Q1b0MXNqUQl0LohENI1db_pqcKbvbcvoZvmpUrstdJH7apXQ3ofHRTiV_xEs5gaPQv1_HyNvlTGfU2&_nc_zt=23&_nc_ht=scontent.fiba2-3.fna&_nc_gid=TjUkjS4fYkrt2gw1oRS7ow&_nc_ss=7b289&oh=00_AQJJ6irEyQELkNrpcU-VRiagdRlZGqZTfBiZA5nhCEKY9w&oe=6ABD8C11"
+                        alt="Product 1">
+                    <!-- <video autoplay muted loop playsinline class="background-video">
+
+                        <source src="award.mp4" type="video/mp4">
+
+                        Your browser does not support video.
+
+                    </video> -->
+
+                    <span class="product-tag">
+                        Popular
+                    </span>
+
+                </div>
+
+                <div class="product-info">
+
+                    <!-- CHANGE PRODUCT NAME -->
+                    <h3>Throw Pillow</h3>
+
+                    <p>
+                        High-quality
+                    </p>
+
+                    <!-- CHANGE PRICE -->
+                    <div class="price">
+                        <!-- ₦15,000 -->
+                    </div>
+
+                    <!-- <button class="order-btn" onclick="orderProduct('Premium Business Card', '₦15,000')">
+
+                        Order Now
+
+                    </button> -->
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 2 -->
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTd_q-ZDbro9UedsP4JHYh0RI4xzumSRGlWZzMulUj_rQ&s=10"
+                        alt="Product 2">
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>Banner </h3>
+
+                    <p>
+                        Beautiful custom printed banner.
+                    </p>
+
+                    <!-- <div class="price">
+                        ₦12,000
+                    </div> -->
+
+                    <!-- <button class="order-btn" onclick="orderProduct('Custom T-Shirt', '₦12,000')">
+
+                        Order Now
+
+                    </button> -->
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 3 -->
+
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <img src="https://scontent.cdninstagram.com/v/t51.82787-15/817383487_18119838655939184_2192803101427253243_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=106&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=-JEPmG45GUYQ7kNvwH_U4Dn&_nc_oc=Adq0SSEhn9xh-gBnivjwEn7LXZi4ElHE3Ej-7TZPJvubPh-yuWUs33R8tgwJxu5kMNY&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=6IB5cpaBQHfvzyHi2ik0Qg&_nc_ss=7ba8c&oh=00_AQI6i6j6v0_ENAL8uJmJmsxrTl4o0GSK1VOeJTw0tbCzbw&oe=6ABD554F"
+                        alt="Product 3">
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>Compont Tag</h3>
+
+                    <p>
+                        High-quality Compont Tag .
+                    </p>
+
+                    <!-- <div class="price">
+                        ₦20,000
+                    </div>
+
+                    <button class="order-btn" onclick="orderProduct('Premium Flyer', '₦20,000')">
+
+                        Order Now
+
+                    </button> -->
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT 4 -->
+            <div class="product-card">
+
+                <div class="product-image">
+
+                    <img src="https://scontent.cdninstagram.com/v/t51.82787-15/817651196_18119826691939184_9012610485486523914_n.jpg?stp=dst-jpg_e35_s640x640_tt6&_nc_cat=111&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=J8dY8NKINOwQ7kNvwF45dUQ&_nc_oc=AdqqsRy1fXjcukSRF1szm1OyCRrXGGy5SHyIwZLrv3hpkuiDPJXq-5C0wuPVjKvbBI4&_nc_zt=23&_nc_ht=scontent.cdninstagram.com&_nc_gid=6IB5cpaBQHfvzyHi2ik0Qg&_nc_ss=7ba8c&oh=00_AQKDYU3W2EMCkpiga9_3qD8JGLMzj2d_LF09pjMpgQqMZA&oe=6ABD5165"
+                        alt="Product 2">
+
+                </div>
+
+                <div class="product-info">
+
+                    <h3>Frame</h3>
+
+                    <p>
+                        boderless frame is also avaliable .
+                    </p>
+
+                    <!-- <div class="price">
+                        ₦12,000
+                    </div> -->
+
+                    <!-- <button class="order-btn" onclick="orderProduct('Custom T-Shirt', '₦12,000')">
+
+                        Order Now
+
+                    </button> -->
+
+                </div>
+
+            </div>
+        </div>
+
+        </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SERVICES ================= -->
+
+    <section class="services section" id="services">
+
+        <div class="section-title">
+
+            <p>WHAT WE DO</p>
+
+            <h2>
+                Our <span>Services</span>
+            </h2>
+
+        </div>
+
+
+        <div class="service-grid">
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    ✦
+                </div>
+
+                <h3>Digital Printing</h3>
+
+                <p>
+                    High-quality digital printing for personal
+                    and business needs.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    ◆
+                </div>
+
+                <h3>Branding</h3>
+
+                <p>
+                    Professional branding solutions designed
+                    to make your business stand out.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    ◈
+                </div>
+
+                <h3>Graphic Design</h3>
+
+                <p>
+                    Creative designs for businesses, events,
+                    products and social media.
+                </p>
+
+            </div>
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    ★
+                </div>
+
+                <h3>Custom Printing</h3>
+
+                <p>
+                    Personalized printing created according
+                    to your exact requirements.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CALL TO ACTION ================= -->
+
+    <section class="cta">
+
+        <div>
+
+            <p>HAVE A PROJECT IN MIND?</p>
+
+            <h2>
+                Let's Create Something
+                <span>Beautiful.</span>
+            </h2>
+
+            <a href="#contact" class="btn gold-btn">
+                Start Your Project
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTACT ================= -->
+
+    <section class="contact section" id="contact">
+
+        <div class="section-title">
+
+            <p>GET IN TOUCH</p>
+
+            <h2>
+                Contact <span>Us</span>
+            </h2>
+
+        </div>
+
+
+        <div class="contact-container">
+
+
+            <div class="contact-info">
+
+                <h3>
+                    Let's work together.
+                </h3>
+
+                <p>
+                    Have a question, project or custom printing request?
+                    Send us a message and we will get back to you.
+                </p>
+
+
+                <div class="contact-item">
+
+                    <span>📞</span>
+
+                    <div>
+                        <small>Phone</small>
+                        <p>08146855403</p>
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <span>✉</span>
+
+                    <div>
+                        <small>Email</small>
+                        <p>Kunkemsolutions@gmail.com</p>
+                    </div>
+
+                </div>
+
+
+                <div class="contact-item">
+
+                    <span>📍</span>
+
+                    <div>
+                        <small>Location</small>
+                        <p>Ibadan, Nigeria</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <form class="contact-form" id="contactForm">
+
+                <input type="text" id="name" placeholder="Your Name" required>
+
+                <input type="email" id="email" placeholder="Your Email" required>
+
+                <input type="text" id="subject" placeholder="Subject" required>
+
+                <textarea id="message" placeholder="Tell us about your project..." rows="6" required></textarea>
+
+                <button type="submit" class="btn gold-btn">
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-logo">
+
+            <!-- LOGO -->
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_RJPKfwT36ayrcr1mxbTQkpa37IFYTc5rrBCVBWP7HQ&s=10"
+                alt="Kunkem Logo">
+
+            <h3>KUNKEM</h3>
+
+            <p>DIGITAL PRINTS</p>
+
+        </div>
+
+
+        <div class="socials">
+            <a href="https://www.facebook.com/profile.php?id=100067979394721" style="--i:7" title="Facebook"><i
+                    class="bx bxl-facebook"></i></a>
+            <a href="https://wa.me/2348146855403" style="--i:8" title="WhatsApp"><i class="bx bxl-whatsapp"></i></a>
+            <a href="https://www.instagram.com/kunkem_digital_prints?stkn=MTN6YjRqZWhseHl3OQ==" style="--i:9" title="Instagram"><i class="bx bxl-instagram"></i></a>
+            <a href="https://www.tiktok.com/@kunkem_digital_prints?_r=1&_t=ZS-980UQ93OQmu" style="--i:10"
+                title="TikTok"><i class="bx bxl-tiktok"></i></a>
+        </div>
+
+        <p class="copyright">
+
+            © 2026 Kunkem Digital Prints.
+            All Rights Reserved.
+
+        </p>
+        <div class="israel">
+            contact [07073451239] for web development
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
+```
